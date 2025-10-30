@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { StockAdd } from '../../components/stockAdd/stockAdd';
+import { StockList } from '../../components/stockList/stockList';
 
 @Component({
   selector: 'app-stock',
-  imports: [],
+  imports: [StockAdd],
   templateUrl: './stock.html',
 })
-export class Stock { }
+export default class Stock { }
