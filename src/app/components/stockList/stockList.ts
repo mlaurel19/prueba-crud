@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { Stock } from '../../interfaces/stock.interface';
 
 @Component({
@@ -9,5 +9,5 @@ import { Stock } from '../../interfaces/stock.interface';
 })
 export class StockList {
   stockTitle = signal<string>('Listado del stock');
-  
+  stockList = input.required<Stock[]>();
 }

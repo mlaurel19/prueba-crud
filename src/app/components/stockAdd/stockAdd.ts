@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
+import { Stock } from '../../interfaces/stock.interface';
 
 @Component({
   selector: 'app-stock-add',
@@ -12,7 +13,19 @@ export class StockAdd {
   public name = signal("Gafete");
   public cuantity = signal(10);
 
-  AddStock(){
-    console.log('Hola');
+  OnNewStock = output<Stock>();
+  addStock(){
+    const newStock: Stock = {
+      id: Math.floor(Math.random() * 100),
+      name: this.name(),
+      cuantity: this.cuantity()
+    }
+    this.OnNewStock.emit(newStock);
+    this.resetInputs();
+  }
+
+  resetInputs(){
+    this.name.set('');
+    this.cuantity.set(0);
   }
 }

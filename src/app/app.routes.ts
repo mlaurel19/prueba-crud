@@ -10,13 +10,16 @@ export const routes: Routes = [
     path: 'stock',
     loadComponent: () => import('./pages/stock/stock')
   },
-
+  {
+    path: 'reactive',
+    loadComponent: () => import('./pages/reactive-forms/reactive-forms')
+  },
   {
     path: 'users',
     loadComponent: () => import('./pages/users/users')
   },
   {
     path: '**',
-    redirectTo: 'stock'
+    redirectTo: 'reactive'
   }
 ];
