@@ -14,9 +14,13 @@ export const routes: Routes = [
     path: 'reactive',
     loadComponent: () => import('./pages/reactive-forms/reactive-forms')
   },
+  // {
+  //   path: 'users',
+  //   loadComponent: () => import('./pages/users/users')
+  // },
   {
     path: 'users',
-    loadComponent: () => import('./pages/users/users')
+    loadChildren: () => import('./pages/user/user.routes'),
   },
   {
     path: 'reactivestock',
